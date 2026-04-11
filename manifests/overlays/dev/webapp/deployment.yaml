@@ -11,8 +11,8 @@ spec:
     spec:
       containers:
         - name: webapp-php
-          image: webapp-php:v0.1.3
+          image: webapp-php:v0.1.4
           imagePullPolicy: Never
         - name: webapp-nginx
-          image: webapp-nginx:v0.1.3
+          image: webapp-nginx:v0.1.4
           imagePullPolicy: Never
