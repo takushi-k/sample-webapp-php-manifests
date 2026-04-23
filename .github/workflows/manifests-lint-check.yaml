@@ -16,8 +16,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - run: echo ${{ github.event.head_commit.author.email }}
+      - run: echo ${{ github.event.head_commit.author.email}} | cut -d@ -f1
+      - run: echo ${{ github.event.head_commit.author.email}} | cut -d@ -f1 | tr + -
+
       - name: Install tools
         uses: asdf-vm/actions/install@v3
+        with:
+          # 最新(master)ではなく、安定していた以前のバージョンを指定する3
+          asdf_branch: v0.15.0
 
       - name: Lint manifests (Kubernetes 1.30.0)
         run: ./tools/lint.sh 1.30.0
