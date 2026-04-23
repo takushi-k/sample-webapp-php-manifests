@@ -18,6 +18,9 @@ jobs:
 
       - name: Install tools
         uses: asdf-vm/actions/install@v3
+        with:
+          # 最新(master)ではなく、安定していた以前のバージョンを指定する
+          asdf_version: v0.15.0
 
       - name: Lint manifests (Kubernetes 1.30.0)
         run: ./tools/lint.sh 1.30.0
