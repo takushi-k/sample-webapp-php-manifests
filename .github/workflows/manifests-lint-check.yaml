@@ -8,7 +8,7 @@ on:
     types:
       - opened
       - synchronize
-
+#動作確認
 jobs:
   lint:
     runs-on: ubuntu-latest
