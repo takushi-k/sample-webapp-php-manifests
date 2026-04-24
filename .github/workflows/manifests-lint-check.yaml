@@ -3,7 +3,7 @@ name: Kubernetes Manifests Lint Check
 on:
   push:
     branches:
-      - main
+      # - main
   pull_request:
     types:
       - opened
@@ -15,6 +15,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - run: node -v
+      - run: echo ${{ github.workflow }}
+      - run: echo ${{ github.ref }}
+      - run: echo ${{ github.workspace }}
+      - run: echo ${{ github.event.head_commit.author.email }}
+      - run: echo ${{ github.event.head_commit.author.email}} | cut -d@ -f1
+      - run: echo ${{ github.event.head_commit.author.email}} | cut -d@ -f1 | tr + -
 
       - name: Install tools
         uses: asdf-vm/actions/install@v3
